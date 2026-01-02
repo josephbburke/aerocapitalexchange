@@ -25,6 +25,7 @@ export function ContactForm() {
   const { user } = useAuth()
   const [isSuccess, setIsSuccess] = useState(false)
   const [inquiryType, setInquiryType] = useState<'general' | 'financing' | 'aircraft' | 'partnership'>('general')
+  const [preferredContactMethod, setPreferredContactMethod] = useState<'email' | 'phone' | 'either'>('email')
 
   const {
     register,
@@ -47,7 +48,11 @@ export function ContactForm() {
     mutationFn: async (data: InquiryFormData) => {
       // Create inquiry with the selected type
       return createInquiry(
-        data,
+        {
+          ...data,
+          inquiry_type: inquiryType,
+          preferred_contact_method: preferredContactMethod,
+        },
         undefined, // no specific aircraft
         user?.id
       )
@@ -168,6 +173,22 @@ export function ContactForm() {
                   placeholder="Your Company LLC"
                 />
               </div>
+            </div>
+
+            {/* Preferred Contact Method */}
+            <div className="space-y-2">
+              <Label htmlFor="contact_method">Preferred Contact Method</Label>
+              <select
+                id="contact_method"
+                value={preferredContactMethod}
+                onChange={(e) => setPreferredContactMethod(e.target.value as typeof preferredContactMethod)}
+                className="w-full px-3 py-2 border border-input rounded-md bg-background"
+                disabled={mutation.isPending}
+              >
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+                <option value="either">Either</option>
+              </select>
             </div>
 
             {/* Subject */}
