@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Example Aircraft - Gulfstream G650 2020",
+    "manufacturer": "Gulfstream",
+    "model": "G650",
+    "year_manufactured": 2020,
+    "category": "jet",
+    "status": "available",
+    "description": "Pristine Gulfstream G650 with low hours and full maintenance history. This aircraft features the latest avionics and luxury interior.",
+    "registration_number": "N123AB",
+    "serial_number": "6123",
+    "total_time_hours": 850,
+    "engines": 2,
+    "passengers_capacity": 18,
+    "max_range_nm": 7000,
+    "max_speed_kts": 516,
+    "cruise_speed_kts": 488,
+    "max_altitude_ft": 51000,
+    "price": 45000000,
+    "price_currency": "USD",
+    "is_price_negotiable": true,
+    "features": [
+      "Full HD Cabin Management System",
+      "Enhanced Vision System (EVS)",
+      "Synthetic Vision System (SVS)",
+      "Satellite Communications",
+      "Full Galley",
+      "Aft Lavatory with Shower"
+    ],
+    "primary_image_url": "https://example.com/path/to/image.jpg",
+    "featured": true
+  },
+  {
+    "title": "Another Aircraft Example",
+    "manufacturer": "Bombardier",
+    "model": "Global 7500",
+    "year_manufactured": 2019,
+    "category": "jet",
+    "status": "available",
+    "description": "Add your aircraft description here...",
+    "total_time_hours": 500,
+    "engines": 2,
+    "passengers_capacity": 19,
+    "max_range_nm": 7700,
+    "price": 72000000,
+    "price_currency": "USD",
+    "is_price_negotiable": true,
+    "primary_image_url": "https://example.com/path/to/another-image.jpg",
+    "featured": false
+  }
+]

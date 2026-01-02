@@ -8,6 +8,25 @@ export async function middleware(request: NextRequest) {
     },
   })
 
+  // Add security headers to the response
+  // Note: These are additional headers that complement those in next.config.ts
+  const headers = response.headers
+
+  // Add nonce for CSP (can be used for inline scripts if needed)
+  const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
+  headers.set('x-nonce', nonce)
+
+  // Security headers for additional protection
+  headers.set('X-Robots-Tag', 'index, follow')
+
+  // Prevent MIME type sniffing
+  headers.set('X-Download-Options', 'noopen')
+
+  // Cross-Origin policies for enhanced security
+  headers.set('Cross-Origin-Embedder-Policy', 'credentialless')
+  headers.set('Cross-Origin-Opener-Policy', 'same-origin')
+  headers.set('Cross-Origin-Resource-Policy', 'same-origin')
+
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -73,6 +92,7 @@ export async function middleware(request: NextRequest) {
       .single()
 
     if (!profile || (profile.role !== 'admin' && profile.role !== 'super_admin')) {
+      // Unauthorized access attempt - redirect to dashboard
       return NextResponse.redirect(new URL('/dashboard', request.url))
     }
   }

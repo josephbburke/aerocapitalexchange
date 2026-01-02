@@ -55,7 +55,7 @@ export interface Database {
           year_manufactured: number
           registration_number: string | null
           serial_number: string | null
-          category: 'jet' | 'turboprop' | 'helicopter' | 'piston'
+          category: 'jet' | 'turboprop' | 'helicopter' | 'piston' | 'trailer'
           aircraft_type: string | null
           total_time_hours: number | null
           engines: number | null
@@ -92,7 +92,7 @@ export interface Database {
           year_manufactured: number
           registration_number?: string | null
           serial_number?: string | null
-          category: 'jet' | 'turboprop' | 'helicopter' | 'piston'
+          category: 'jet' | 'turboprop' | 'helicopter' | 'piston' | 'trailer'
           aircraft_type?: string | null
           total_time_hours?: number | null
           engines?: number | null

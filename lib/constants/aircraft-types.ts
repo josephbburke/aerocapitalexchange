@@ -3,6 +3,7 @@ export const AIRCRAFT_CATEGORIES = {
   TURBOPROP: "turboprop",
   HELICOPTER: "helicopter",
   PISTON: "piston",
+  TRAILER: "trailer",
 } as const;
 
 export type AircraftCategory = typeof AIRCRAFT_CATEGORIES[keyof typeof AIRCRAFT_CATEGORIES];
@@ -21,6 +22,7 @@ export const AIRCRAFT_CATEGORY_LABELS: Record<AircraftCategory, string> = {
   [AIRCRAFT_CATEGORIES.TURBOPROP]: "Turboprop",
   [AIRCRAFT_CATEGORIES.HELICOPTER]: "Helicopter",
   [AIRCRAFT_CATEGORIES.PISTON]: "Piston Aircraft",
+  [AIRCRAFT_CATEGORIES.TRAILER]: "Trailer",
 };
 
 export const AIRCRAFT_STATUS_LABELS: Record<AircraftStatus, string> = {

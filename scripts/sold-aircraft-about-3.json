@@ -1,0 +1,93 @@
+[
+  {
+    "title": "2019 Diamond DA-62 N296LA",
+    "manufacturer": "Diamond",
+    "model": "DA-62",
+    "year_manufactured": 2019,
+    "category": "piston",
+    "status": "sold",
+    "description": "Both engines and props have 492 hours since new. 7-seat configuration with Garmin G1000 NXi glass cockpit and GFC 700 autopilot.",
+    "registration_number": "N296LA",
+    "total_time_hours": 492,
+    "engines": 2,
+    "passengers_capacity": 7,
+    "price": 1470000,
+    "price_currency": "USD",
+    "is_price_negotiable": false,
+    "features": [
+      "Garmin G1000 NXi glass cockpit",
+      "GFC 700 autopilot",
+      "7-seat configuration",
+      "Both engines and props 492 hours since new"
+    ],
+    "primary_image_url": "https://static.wixstatic.com/media/b2fa4a_662fd6d1c97e4315b59bd3b0f4c59643~mv2.jpg/v1/fill/w_251,h_404,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/b2fa4a_662fd6d1c97e4315b59bd3b0f4c59643~mv2.jpg",
+    "featured": false
+  },
+  {
+    "title": "2024 TECNAM P2010",
+    "manufacturer": "TECNAM",
+    "model": "P2010",
+    "year_manufactured": 2024,
+    "category": "piston",
+    "status": "sold",
+    "description": "4-seat aircraft with G1000NXI avionics, Flight Stream 510, and GFC507 autopilot controller. Includes synthetic vision capability.",
+    "total_time_hours": 218,
+    "engines": 1,
+    "passengers_capacity": 4,
+    "price": 550000,
+    "price_currency": "USD",
+    "is_price_negotiable": false,
+    "features": [
+      "G1000NXI avionics",
+      "Flight Stream 510",
+      "GFC507 autopilot controller",
+      "Synthetic vision capability"
+    ],
+    "primary_image_url": "https://static.wixstatic.com/media/b2fa4a_1ec9ae37cfd14671bc94de1f71f183ab~mv2.jpg/v1/fill/w_251,h_404,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/b2fa4a_1ec9ae37cfd14671bc94de1f71f183ab~mv2.jpg",
+    "featured": false
+  },
+  {
+    "title": "2024 Diamond DA-50",
+    "manufacturer": "Diamond",
+    "model": "DA-50",
+    "year_manufactured": 2024,
+    "category": "piston",
+    "status": "sold",
+    "description": "New 2024 Diamond DA-50 with 110 hours.",
+    "total_time_hours": 110,
+    "engines": 1,
+    "passengers_capacity": 5,
+    "price": 1500000,
+    "price_currency": "USD",
+    "is_price_negotiable": false,
+    "features": [],
+    "primary_image_url": "https://static.wixstatic.com/media/b2fa4a_04ab9600f6c744d488e5ac551f760dc5~mv2.png/v1/fill/w_159,h_106,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b2fa4a_04ab9600f6c744d488e5ac551f760dc5~mv2.png",
+    "featured": false
+  },
+  {
+    "title": "1980 Beechcraft A36TC Bonanza",
+    "manufacturer": "Beechcraft",
+    "model": "A36TC Bonanza",
+    "year_manufactured": 1980,
+    "category": "piston",
+    "status": "sold",
+    "description": "TSIO520 engine with 400 hours since overhaul. Includes speed brakes, tip tanks, new prop (2020), GNS530 WAAS, and KFC200 autopilot.",
+    "total_time_hours": 5996,
+    "engines": 1,
+    "passengers_capacity": 6,
+    "price": 355000,
+    "price_currency": "USD",
+    "is_price_negotiable": false,
+    "features": [
+      "TSIO520 engine",
+      "400 hours since engine overhaul",
+      "Speed brakes",
+      "Tip tanks",
+      "New prop (2020)",
+      "GNS530 WAAS",
+      "KFC200 autopilot"
+    ],
+    "primary_image_url": "https://static.wixstatic.com/media/b2fa4a_36082986a0054106ae89494c67ec8761~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/B2.jpg",
+    "featured": false
+  }
+]

@@ -43,6 +43,7 @@ export default function SignupPage() {
       // Redirect to dashboard after a short delay
       setTimeout(() => {
         router.push('/dashboard')
+        router.refresh()
       }, 1500)
     }
   }

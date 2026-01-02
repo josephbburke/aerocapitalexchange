@@ -38,8 +38,11 @@ function LoginForm() {
       setError(error.message)
       setLoading(false)
     } else {
+      // Give the session a moment to be set before redirecting
+      await new Promise(resolve => setTimeout(resolve, 100))
       const redirect = searchParams.get('redirect') || '/dashboard'
       router.push(redirect)
+      router.refresh()
     }
   }
 
