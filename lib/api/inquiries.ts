@@ -5,18 +5,66 @@ import { InquiryFormData } from '@/schemas/inquiry'
 type InquiryInsert = Database['public']['Tables']['inquiries']['Insert']
 type Inquiry = Database['public']['Tables']['inquiries']['Row']
 
+/**
+ * Create a new inquiry via the API route (recommended)
+ * This uses the API route which includes rate limiting and email notifications
+ */
 export async function createInquiry(
   formData: InquiryFormData,
   aircraftId?: string,
   userId?: string
-) {
+): Promise<Inquiry> {
+  // Use the API route for rate limiting and email notifications
+  const response = await fetch('/api/inquiries', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      ...formData,
+      aircraft_id: aircraftId,
+    }),
+  })
+
+  const data = await response.json()
+
+  if (!response.ok) {
+    // Handle rate limiting
+    if (response.status === 429) {
+      throw new Error(data.message || 'Too many requests. Please try again later.')
+    }
+    // Handle validation errors
+    if (response.status === 400) {
+      throw new Error(data.message || 'Invalid inquiry data')
+    }
+    // Handle other errors
+    throw new Error(data.message || 'Failed to submit inquiry')
+  }
+
+  // Fetch the complete inquiry data
+  if (data.inquiry?.id) {
+    return await getInquiryById(data.inquiry.id)
+  }
+
+  throw new Error('Failed to create inquiry')
+}
+
+/**
+ * Create inquiry directly (bypasses API route)
+ * Only use this for internal/server-side operations
+ */
+export async function createInquiryDirect(
+  formData: InquiryFormData,
+  aircraftId?: string,
+  userId?: string
+): Promise<Inquiry> {
   const supabase = createClient()
 
   const inquiryData: InquiryInsert = {
     ...formData,
     user_id: userId || null,
     aircraft_id: aircraftId || null,
-    inquiry_type: aircraftId ? 'aircraft' : 'general',
+    inquiry_type: formData.inquiry_type || (aircraftId ? 'aircraft' : 'general'),
     status: 'new',
     priority: 'medium',
   }

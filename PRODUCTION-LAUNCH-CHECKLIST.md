@@ -240,22 +240,74 @@ These features MUST be completed before public launch.
 ## Security & Compliance
 
 ### Security Checklist
+
+#### Security Headers Configuration
+- [x] **Content-Security-Policy (CSP)** - Configured in `next.config.ts`
+  - Prevents XSS attacks and unauthorized resource loading
+  - Allows Supabase and Google Sign-In domains
+  - Enforces HTTPS upgrade for insecure requests
+- [x] **X-Frame-Options: DENY** - Prevents clickjacking attacks
+- [x] **X-Content-Type-Options: nosniff** - Prevents MIME sniffing
+- [x] **X-XSS-Protection** - Browser XSS filter enabled
+- [x] **Strict-Transport-Security (HSTS)** - Enforces HTTPS for 2 years
+- [x] **Referrer-Policy** - Controls referrer information sharing
+- [x] **Permissions-Policy** - Disables unnecessary browser features
+- [x] **Cross-Origin Policies** - Enhanced isolation and security
+- [ ] **Test security headers** using `scripts/test-security-headers.ts`
+- [ ] **Verify CSP** doesn't block legitimate functionality in production
+
+#### Environment Variables Security
+- [x] All public variables use `NEXT_PUBLIC_` prefix
+- [x] `SUPABASE_SERVICE_ROLE_KEY` only used in server-side scripts
+- [x] No secrets exposed in client-side code (verified)
+- [x] `.env.local` in `.gitignore` (verified)
+- [ ] Production environment variables set in Vercel
+- [ ] Rotate `SUPABASE_SERVICE_ROLE_KEY` if exposed
+- [ ] Remove any `.env.local` or `.env` files from git history
+
+#### Authentication & Authorization
+- [x] Middleware protects `/admin` routes with role-based access
+- [x] Middleware protects `/dashboard` routes (authenticated users only)
+- [x] Public routes accessible without authentication
+- [x] Auth pages redirect logged-in users
 - [ ] Review all RLS policies in Supabase
 - [ ] Verify storage bucket policies are correct
 - [ ] Test that users cannot access admin routes
 - [ ] Test that users can only see/edit their own data
-- [ ] Implement rate limiting on forms (contact, login, signup)
+- [ ] Test session timeout and refresh behavior
+- [ ] Verify password reset flow is secure
+
+#### Input Validation & Sanitization
 - [ ] Add CSRF protection (Next.js includes this by default)
 - [ ] Sanitize all user inputs (forms, queries)
 - [ ] Review and test file upload security
+- [ ] Implement rate limiting on forms (contact, login, signup)
+- [ ] Add CAPTCHA for contact form (prevent spam)
+- [ ] Validate file types and sizes for uploads
+- [ ] Test SQL injection protection (Supabase handles this)
+
+#### Production Security
 - [ ] Ensure no sensitive data in client-side code
 - [ ] Use environment variables for all secrets
 - [ ] Verify HTTPS is enforced (Vercel does this automatically)
-- [ ] Add security headers:
-  - Content-Security-Policy
-  - X-Frame-Options
-  - X-Content-Type-Options
-  - Referrer-Policy
+- [ ] Review client bundle for exposed secrets
+- [ ] Check for console.log statements with sensitive data
+- [ ] Implement proper error handling (no stack traces in production)
+- [ ] Set up security monitoring and alerting
+
+#### Security Testing
+- [ ] Run security scanner (OWASP ZAP or Burp Suite)
+- [ ] Test authentication bypass attempts
+- [ ] Test authorization bypass attempts
+- [ ] Test for XSS vulnerabilities
+- [ ] Test file upload vulnerabilities
+- [ ] Check for exposed admin endpoints
+- [ ] Verify cookies have Secure and HttpOnly flags
+- [ ] Test CSP with browser DevTools (check for violations)
+- [ ] Use securityheaders.com to verify headers
+- [ ] Use Mozilla Observatory for security score
+
+**See `SECURITY.md` for detailed security documentation.**
 
 ### Compliance & Legal Pages
 - [ ] Create Privacy Policy page (`app/privacy/page.tsx`)

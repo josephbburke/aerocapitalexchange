@@ -173,7 +173,7 @@ export default function AdminPage() {
                 </CardContent>
               </Card>
 
-              <Card className="cursor-pointer hover:border-primary transition-colors" onClick={() => setView('inquiries')}>
+              <Card className="cursor-pointer hover:border-primary transition-colors" onClick={() => window.location.href = '/admin/inquiries'}>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <MessageSquare className="h-5 w-5" />
