@@ -120,7 +120,7 @@ export function InquiryForm({
           {description ||
             (aircraftTitle
               ? 'Have questions? Fill out the form below and our team will respond promptly.'
-              : 'Fill out the form below and we'll get back to you as soon as possible')}
+              : "Fill out the form below and we'll get back to you as soon as possible")}
         </CardDescription>
       </CardHeader>
       <CardContent className={compact ? 'pt-3' : ''}>

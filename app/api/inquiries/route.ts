@@ -166,7 +166,7 @@ export async function POST(request: NextRequest) {
  * GET /api/inquiries
  * Get inquiries (admin only or user's own inquiries)
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const supabase = await createClient()
 

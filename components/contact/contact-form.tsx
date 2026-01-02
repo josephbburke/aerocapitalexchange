@@ -22,7 +22,7 @@ const inquiryTypes = [
 ] as const
 
 export function ContactForm() {
-  const { user } = useAuth()
+  const { user, profile } = useAuth()
   const [isSuccess, setIsSuccess] = useState(false)
   const [inquiryType, setInquiryType] = useState<'general' | 'financing' | 'aircraft' | 'partnership'>('general')
   const [preferredContactMethod, setPreferredContactMethod] = useState<'email' | 'phone' | 'either'>('email')
@@ -37,10 +37,12 @@ export function ContactForm() {
     defaultValues: {
       subject: '',
       message: '',
-      full_name: '',
-      email: '',
-      phone: '',
-      company_name: '',
+      full_name: profile?.full_name || '',
+      email: user?.email || '',
+      phone: profile?.phone || '',
+      company_name: profile?.company_name || '',
+      inquiry_type: 'general',
+      preferred_contact_method: 'email',
     },
   })
 
